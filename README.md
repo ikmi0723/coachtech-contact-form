@@ -58,7 +58,7 @@ docker compose exec php bash -lc "cd /var/www && php artisan migrate:fresh --see
   - その他
 - contacts（Factory）：35 件
 
-### 使用技術（実行環境）
+## 使用技術（実行環境）
 
 - PHP（Docker 環境）
 - Laravel 8.x
@@ -67,13 +67,13 @@ docker compose exec php bash -lc "cd /var/www && php artisan migrate:fresh --see
 - phpMyAdmin
 - Laravel Fortify（認証）
 
-### ER 図
+## ER 図
 
 （ここに ER 図画像を貼り付けてください）
 
 例：
 
-### URL
+## URL
 
 - アプリ（お問い合わせフォーム）：http://localhost/
 - 管理画面（要ログイン）：http://localhost/admin
@@ -82,7 +82,7 @@ docker compose exec php bash -lc "cd /var/www && php artisan migrate:fresh --see
 - phpMyAdmin：http://localhost:8080/
   - ※ 環境によって表示できない場合があります（Docker のポート公開設定に依存）
 
-### 主な機能
+## 主な機能
 
 ### お問い合わせフォーム
 
