@@ -12,89 +12,82 @@ COACHTECH 確認テスト：お問い合わせフォームアプリケーショ�
 ```bash
 git clone <this repository>
 cd coachtech-contact-form
-2. Docker 起動
-bash
-コードをコピーする
+```
+
+###　 2. Docker 起動
+
+```bash
 docker compose up -d --build
-3. 依存パッケージのインストール（必要な場合）
+```
+
+###　 3. 依存パッケージのインストール（必要な場合）
 ※ src/vendor が無い場合のみ実行してください。
 
-bash
-コードをコピーする
+```bash
 docker compose exec php bash -lc "cd /var/www && composer install"
-4. 環境変数（.env）
+```
+
+###　 4. 環境変数（.env）
 .env が無い場合のみ、以下を実行してください。
 
-bash
-コードをコピーする
+```bash
 docker compose exec php bash -lc "cd /var/www && cp .env.example .env"
-5. APP_KEY 生成（未生成の場合）
-bash
-コードをコピーする
+```
+
+###　 5. APP_KEY 生成（未生成の場合）
+
+```bash
 docker compose exec php bash -lc "cd /var/www && php artisan key:generate"
-6. マイグレーション & シーディング（ダミーデータ作成）
-bash
-コードをコピーする
+```
+
+###　 6. マイグレーション & シーディング（ダミーデータ作成）
+
+```bash
 docker compose exec php bash -lc "cd /var/www && php artisan migrate:fresh --seed"
-シーディング内容
-categories：5件（Seeder）
+```
 
-商品のお届けについて
+### シーディング内容
 
-商品の交換について
+- categories（Seeder）：5 件
+  - 商品のお届けについて
+  - 商品の交換について
+  - 商品トラブル
+  - ショップへのお問い合わせ
+  - その他
+- contacts（Factory）：35 件
 
-商品トラブル
+###　使用技術（実行環境）
 
-ショップへのお問い合わせ
+- PHP（Docker 環境）
+- Laravel 8.x
+- MySQL 8.0.x
+- nginx
+- phpMyAdmin
+- Laravel Fortify（認証）
 
-その他
-
-contacts：35件（Factory）
-
-使用技術（実行環境）
-PHP（Docker環境）
-
-Laravel 8.x
-
-MySQL 8.0.x
-
-nginx
-
-phpMyAdmin
-
-Laravel Fortify（認証）
-
-ER図
-（ここにER図画像を貼り付けてください）
+###　 ER 図
+（ここに ER 図画像を貼り付けてください）
 
 例：
 
-URL
-アプリ（お問い合わせフォーム）：http://localhost/
+###　　 URL
 
-管理画面（要ログイン）：http://localhost/admin
+- アプリ（お問い合わせフォーム）：http://localhost/
+- 管理画面（要ログイン）：http://localhost/admin
+- ログイン：http://localhost/login
+- 会員登録：http://localhost/register
+- phpMyAdmin：http://localhost:8080/
+  - ※ 環境によって表示できない場合があります（Docker のポート公開設定に依存）
 
-ログイン：http://localhost/login
+###　　主な機能 ###　　お問い合わせフォーム
 
-会員登録：http://localhost/register
+- 入力 → 確認 → 送信（DB 保存） → サンクス
+- バリデーション（FormRequest）
 
-phpMyAdmin：http://localhost:8080/
-※ 環境によって表示できない場合があります（Dockerのポート公開設定に依存）
+###　　管理画面（要ログイン）
 
-主な機能
-お問い合わせフォーム
-入力 → 確認 → 送信（DB保存） → サンクス
-
-バリデーション（FormRequest）
-
-管理画面（要ログイン）
-一覧表示（7件ページネーション）
-
-検索（名前/メール/性別/種類/日付）
-
-詳細（モーダル表示）
-
-削除（モーダル下部の削除ボタン）
-
-CSVエクスポート（検索条件反映）
-```
+- 一覧表示（7 件ページネーション）
+- 検索（名前/メール/性別/種類/日付）
+- 詳細（モーダル表示）
+- 削除（モーダル下部の削除ボタン）
+- CSV エクスポート（検索条件反映）
