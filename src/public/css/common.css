@@ -1,0 +1,54 @@
+.header {
+    border-bottom: 1px solid #ddd;
+    padding: 16px 24px;
+}
+
+.header__inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.header__center {
+    justify-self: center;
+}
+
+.header__right {
+    justify-self: end;
+}
+
+.header__logo {
+    text-decoration: none;
+    color: #111;
+    font-weight: bold;
+}
+
+.main {
+    padding: 24px;
+}
+
+/* 共通ボタン */
+.btn {
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    background: #fff;
+    color: #111;
+}
+
+.btn--outline {
+    background: #fff;
+}
+
+.btn--primary {
+    border-color: #111;
+}
+
+.btn--gray {
+    background: #f5f5f5;
+}
