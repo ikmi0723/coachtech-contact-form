@@ -69,9 +69,7 @@ docker compose exec php bash -lc "cd /var/www && php artisan migrate:fresh --see
 
 ## ER 図
 
-（ここに ER 図画像を貼り付けてください）
-
-例：
+![ERD](./docs/erd.png)
 
 ## URL
 
