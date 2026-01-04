@@ -20,9 +20,7 @@ cd coachtech-contact-form
 docker compose up -d --build
 ```
 
-### 3. 依存パッケージのインストール（必要な場合）
-
-※ src/vendor が無い場合のみ実行してください。
+### 3. 依存パッケージのインストール（初回は実行してください）
 
 ```bash
 docker compose exec php bash -lc "cd /var/www && composer install"
@@ -34,6 +32,17 @@ docker compose exec php bash -lc "cd /var/www && composer install"
 
 ```bash
 docker compose exec php bash -lc "cd /var/www && cp .env.example .env"
+```
+
+※ .env の DB 接続設定は以下を想定しています（Docker 環境のため DB_HOST=mysql）。
+
+```bash
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=coachtech_contact_form
+DB_USERNAME=laravel_user
+DB_PASSWORD=laravel_pass
 ```
 
 ### 5. APP_KEY 生成（未生成の場合）
