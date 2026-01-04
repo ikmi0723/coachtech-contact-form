@@ -36,7 +36,7 @@ docker compose exec php bash -lc "cd /var/www && cp .env.example .env"
 
 ※ .env の DB 接続設定は以下を想定しています（Docker 環境のため DB_HOST=mysql）。
 
-```bash
+```env
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
