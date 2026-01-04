@@ -82,7 +82,9 @@ docker compose exec php bash -lc "cd /var/www && php artisan migrate:fresh --see
 - phpMyAdmin：http://localhost:8080/
   - ※ 環境によって表示できない場合があります（Docker のポート公開設定に依存）
 
-### 主な機能 ###　　お問い合わせフォーム
+### 主な機能
+
+### お問い合わせフォーム
 
 - 入力 → 確認 → 送信（DB 保存） → サンクス
 - バリデーション（FormRequest）
