@@ -25,6 +25,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/search', [AdminController::class, 'search']);
     Route::get('/reset', [AdminController::class, 'reset']);
     Route::get('/export', [AdminController::class, 'export']);
+    Route::delete('/delete/{contact}', [AdminController::class, 'destroy']);
 });
 
-Route::delete('/delete/{contact}', [AdminController::class, 'destroy']);

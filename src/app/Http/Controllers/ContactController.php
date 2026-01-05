@@ -22,7 +22,7 @@ class ContactController extends Controller
         return view('confirm', compact('contact', 'categories'));
     }
 
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
         $tel = $request->input('tel1') . $request->input('tel2') . $request->input('tel3');
 

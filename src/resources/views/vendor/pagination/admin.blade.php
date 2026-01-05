@@ -3,7 +3,6 @@
     $current = $paginator->currentPage();
     $last = $paginator->lastPage();
 
-    // 数字は最大5個
     $start = max(1, $current - 2);
     $end = min($last, $start + 4);
     $start = max(1, $end - 4);
@@ -12,7 +11,6 @@
   <nav class="pagination" role="navigation" aria-label="Pagination Navigation">
     <ul class="pagination__list">
 
-      {{-- Prev --}}
       @if ($paginator->onFirstPage())
         <li class="pagination__item is-disabled"><span aria-hidden="true">‹</span></li>
       @else
@@ -21,7 +19,6 @@
         </li>
       @endif
 
-      {{-- Numbers --}}
       @for ($page = $start; $page <= $end; $page++)
         @if ($page === $current)
           <li class="pagination__item is-active"><span>{{ $page }}</span></li>
@@ -30,7 +27,6 @@
         @endif
       @endfor
 
-      {{-- Next --}}
       @if ($paginator->hasMorePages())
         <li class="pagination__item">
           <a href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="Next">›</a>

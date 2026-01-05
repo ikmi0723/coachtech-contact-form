@@ -1,52 +1,261 @@
-.admin-title {
-    margin: 0 0 16px;
-    text-align: center;
+:root {
+    --main: #8b7b70;
+    --text: #7b6f67;
+    --muted: #b9b1ab;
+    --line: #e7e1dc;
+    --field: #f4f2f1;
+    --card: #ffffff;
+    --danger: #b84a3a;
+    --brand-font: "Brix Slab", "Brix Slab Regular", "Roboto Slab", "Noto Serif JP", Georgia, serif;
 }
 
+/* =====================
+    Page
+===================== */
+
+.admin-title {
+    margin: 0 0 26px;
+    text-align: center;
+    font-family: var(--brand-font);
+    font-weight: 300;
+    font-size: 28px;
+    letter-spacing: 0.02em;
+    color: var(--main);
+}
+
+/* =====================
+    Search
+===================== */
 .admin-search {
+    width: min(1100px, 92%);
+    margin: 0 auto 16px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 18px;
     flex-wrap: nowrap;
-    /* 1列固定 */
-    margin-bottom: 12px;
 }
 
 .admin-search__input,
 .admin-search__select,
 .admin-search__date {
-    height: 40px;
-    padding: 0 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    height: 42px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--text);
+    font-size: 13px;
+    padding: 0 14px;
+    border-radius: 0;
+    outline: none;
 }
 
 .admin-search__input {
-    width: 360px;
+    width: auto;
+    flex: 1 1 360px;
+    min-width: 260px;
 }
 
+.admin-search__select {
+    width: 170px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position:
+        calc(100% - 18px) 50%,
+        calc(100% - 12px) 50%;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+}
+
+.admin-search__select[name="gender"] {
+    width: 110px;
+}
+
+.admin-search__select[name="category_id"] {
+    width: 200px;
+}
+
+.admin-search__date {
+    width: 170px;
+    letter-spacing: normal;
+    position: relative;
+}
+
+.admin-search__date::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    width: 42px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.admin-search__date::-webkit-datetime-edit {
+    letter-spacing: 0.12em;
+    color: var(--text);
+}
+
+.admin-search__date::-webkit-datetime-edit-year-field {
+    letter-spacing: normal;
+}
+
+.admin-search__date::-webkit-datetime-edit-text,
+.admin-search__date::-webkit-datetime-edit-month-field,
+.admin-search__date::-webkit-datetime-edit-day-field {
+    letter-spacing: 0.04em;
+}
+
+.admin-search__select,
+.admin-search__date {
+    background: var(--field);
+    padding-right: 42px;
+    background-image:
+        linear-gradient(45deg, transparent 50%, rgba(139, 123, 112, .35) 50%),
+        linear-gradient(135deg, rgba(139, 123, 112, .35) 50%, transparent 50%);
+    background-position:
+        calc(100% - 18px) 50%,
+        calc(100% - 12px) 50%;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    flex: 0 0 auto;
+}
+
+.admin-search__input:focus,
+.admin-search__select:focus,
+.admin-search__date:focus {
+    box-shadow: inset 0 0 0 1px rgba(139, 123, 112, .45);
+}
+
+/* =====================
+    Buttons (admin scope)
+===================== */
+.admin-search .btn,
+.admin-toolbar .btn,
+.admin-table .btn,
+.modal .btn {
+    border-radius: 0;
+    height: 42px;
+    padding: 0 22px;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    box-shadow: none;
+}
+
+.admin-search .btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    min-width: 90px;
+}
+
+/* 検索ボタン */
+.admin-search .btn--primary {
+    background: var(--main);
+    border-color: var(--main);
+    color: #fff;
+}
+
+/* リセット */
+.admin-search .btn--gray {
+    background: #d8cfc6;
+    border-color: #d8cfc6;
+    color: #fff;
+    margin-left: auto;
+}
+
+/* エクスポート */
+.admin-toolbar .btn--outline,
+.admin-table .btn--outline {
+    background: #f5f5f5;
+    border-color: #ded6cf;
+    color: #8b7b70;
+}
+
+/* hover/active */
+.btn:hover {
+    opacity: .92;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* =====================
+    Toolbar (export + pagination)
+===================== */
 .admin-toolbar {
+    width: min(1100px, 92%);
+    margin: 8px auto 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 12px 0 12px;
 }
 
-.admin-table {
-    width: 100%;
+/* =====================
+    Table
+===================== */
+.admin-table{
+    width: min(1100px, 92%);
+    margin: 0 auto;
     border-collapse: collapse;
+    background: #fff;
+    border: 1px solid var(--line);
+    table-layout: fixed;
+    padding: 0 8px;
 }
 
-.admin-table th,
-.admin-table td {
-    border-bottom: 1px solid #eee;
-    padding: 10px 8px;
+.admin-table thead th{
+    background: #7f7267;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: .03em;
+    padding: 16px 20px;
+    font-size: 14px;
+    text-align: left;
 }
 
-.admin-table__row:hover {
-    background: #f2f2f2;
+.admin-table tbody td{
+    border-top: 1px solid var(--line);
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--text);
+    vertical-align: middle;
 }
 
+.admin-table th:first-child,
+.admin-table td:first-child{
+    padding-left: 50px;
+}
+
+.admin-table thead th:last-child,
+.admin-table tbody td:last-child {
+    padding-right: 50px;
+    padding-left: 1px;
+    text-align: right;
+}
+
+.admin-table th:nth-child(1), .admin-table td:nth-child(1){ width: 18%; }
+.admin-table th:nth-child(2), .admin-table td:nth-child(2){ width: 10%; }
+.admin-table th:nth-child(3), .admin-table td:nth-child(3){ width: 26%; }
+.admin-table th:nth-child(4), .admin-table td:nth-child(4){ width: 36%; }
+.admin-table th:nth-child(5), .admin-table td:nth-child(5){ width: 10%; }
+
+.admin-table__gender{
+    white-space: nowrap;
+}
+
+.admin-table__action{
+    text-align: right;
+    white-space: nowrap;
+}
+
+.admin-table__action .btn{
+    height: 34px;
+    padding: 0 18px;
+    font-size: 12px;
+}
+
+/* =====================
+    Pagination
+===================== */
 .pagination {
     display: flex;
     justify-content: flex-end;
@@ -59,57 +268,65 @@
     padding: 0;
 }
 
-/* ここが「同じボックス」 */
+/* ページネーション全体を少し読みやすく */
+.pagination__item a,
+.pagination__item span {
+    font-size: 13px;
+}
+
+/* 矢印だけ大きく（最初/最後の項目が矢印想定） */
+.pagination__item:first-child a,
+.pagination__item:last-child a,
+.pagination__item:first-child span,
+.pagination__item:last-child span {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* 箱 */
 .pagination__item a,
 .pagination__item span {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 32px;
-    border: 1px solid #ccc;
+    width: 34px;
+    height: 30px;
+    border: 1px solid var(--line);
     text-decoration: none;
-    color: #111;
+    color: #8b7b70;
     background: #fff;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1;
 }
 
-/* 隙間なしにする：隣同士のボーダーを重ねる */
+/* つなげる */
 .pagination__item+.pagination__item a,
 .pagination__item+.pagination__item span {
     margin-left: -1px;
 }
 
-/* 角丸は両端だけ */
-.pagination__item:first-child a,
-.pagination__item:first-child span {
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-}
-
-.pagination__item:last-child a,
-.pagination__item:last-child span {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-}
-
-/* 現在ページ */
+/* 現在ページ（濃い） */
 .pagination__item.is-active span {
-    border-color: #111;
-    font-weight: bold;
+    background: var(--main);
+    border-color: var(--main);
+    color: #fff;
+    font-weight: 600;
     position: relative;
     z-index: 1;
-    /* 重なり優先 */
 }
 
-/* 無効（最初/最後の矢印） */
 .pagination__item.is-disabled span {
-    color: #aaa;
+    color: #c9c1bb;
     background: #f5f5f5;
 }
 
+/* =====================
+    Modal
+===================== */
 .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
     display: none;
 }
 
@@ -117,65 +334,137 @@
     display: block;
 }
 
+/* overlay：暗くしない（指定通り） */
 .modal__overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: transparent;
 }
 
+/* content：上下に「指定量」の余白を作る */
 .modal__content {
     position: fixed;
-    top: 50%;
+    top: 80px;
+    /* ← 指定デザインの上余白 */
+    bottom: 80px;
+    /* ← 指定デザインの下余白 */
     left: 50%;
-    width: min(720px, 92vw);
-    max-height: 80vh;
-    overflow: auto;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+
+    width: min(780px, 92vw);
+    overflow-y: auto;
+    overflow-x: hidden;
+
     background: #fff;
-    border-radius: 8px;
-    padding: 24px;
+    border: 1px solid #cfc6be;
+    border-radius: 0;
+
+    padding: 100px 70px 50px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .18);
 }
 
+/* ×ボタン：丸い枠 */
 .modal__close {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    border: none;
-    background: transparent;
-    font-size: 20px;
+    top: 18px;
+    right: 18px;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid #bfb6ae;
+    background: #fff;
+    color: #8b7b70;
+    font-size: 22px;
     cursor: pointer;
 }
 
 .modal__title {
-    margin: 0 0 16px;
+    margin: 0 0 26px;
+    font-family: var(--brand-font);
+    font-weight: 300;
+    font-size: 26px;
+    color: var(--main);
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+
+.modal__body {
+    display: flex;
+    justify-content: center;
 }
 
 .modal__list {
-    margin: 0;
+    width: min(620px, 92%);
+    margin: 0 auto;
 }
 
+/* 2列 */
 .modal__row {
     display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 12px;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
+    grid-template-columns: 200px 1fr;
+    column-gap: 36px;
+    padding: 14px 0;
+    border-bottom: none;
+}
+
+.modal__row dt {
+    color: var(--main);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.modal__row dd {
+    margin: 0;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.8;
+    word-break: break-word;
 }
 
 .modal__footer {
     display: flex;
     justify-content: center;
-    margin-top: 16px;
+    margin-top: 130px;
 }
 
-.admin-detail-cell {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+/* 削除ボタン：赤 */
+.modal__footer .btn--primary {
+    background: var(--danger);
+    border-color: var(--danger);
+    color: #fff;
+    height: 44px;
+    padding: 0 26px;
 }
 
-.admin-detail-cell__text {
-    flex: 1;
-    min-width: 0;
+/* =====================
+    Responsive
+===================== */
+@media (max-width: 900px) {
+    .admin-search {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .admin-search__input {
+        width: 100%;
+    }
+
+    .admin-search__select,
+    .admin-search__date {
+        width: 48%;
+        min-width: 170px;
+    }
+
+    .admin-search .btn {
+        height: 42px;
+    }
+
+    .modal__content {
+        padding: 34px 18px 32px;
+    }
+
+    .modal__row {
+        grid-template-columns: 140px 1fr;
+        gap: 14px;
+    }
 }

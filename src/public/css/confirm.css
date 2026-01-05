@@ -1,0 +1,138 @@
+:root {
+    --main: #8b7b70;
+    --text: #7b6f67;
+    --muted: #b9b1ab;
+    --line: #e7e1dc;
+    --field: #f4f2f1;
+}
+
+/* =====================
+    Confirm layout
+===================== */
+.confirm__inner {
+    width: min(920px, 92%);
+    margin: 0 auto;
+}
+
+/* タイトルの見た目（font-size等）は common.css に集約 */
+.confirm__title {
+    margin: 0 0 34px;
+}
+
+/* =====================
+    Table
+===================== */
+.confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid var(--line);
+}
+
+.confirm-table th,
+.confirm-table td {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 18px;
+    vertical-align: top;
+    font-size: 13px;
+    color: var(--text);
+}
+
+.confirm-table th {
+    width: 260px;
+    background: #c1b4a6;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-align: left;
+    padding: 18px 18px 18px 50px;
+    vertical-align: middle;
+}
+
+.confirm-table tr:last-child th,
+.confirm-table tr:last-child td {
+    border-bottom: none;
+}
+
+.confirm-table td {
+    word-break: break-word;
+    line-height: 1.6;
+    padding-left: 36px;
+}
+
+/* =====================
+    Actions
+===================== */
+.confirm__actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+    margin-top: 32px;
+}
+
+.confirm .btn {
+    border-radius: 0;
+    box-shadow: none;
+    appearance: none;
+}
+
+/* 送信ボタン */
+.confirm .btn--primary {
+    border: none;
+    background: var(--main);
+    color: #fff;
+    padding: 12px 38px;
+    height: auto;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+}
+
+/* 修正ボタン */
+.confirm__edit {
+    border: none;
+    background: transparent;
+    padding: 0;
+    height: auto;
+
+    color: var(--main);
+    font-size: 14px;
+    letter-spacing: 0.06em;
+
+    cursor: pointer;
+}
+
+.confirm__edit:hover {
+    opacity: .75;
+    text-decoration: underline;
+}
+
+.confirm__edit:active {
+    transform: translateY(1px);
+}
+
+.confirm .btn:hover {
+    opacity: .92;
+}
+
+.confirm .btn:active {
+    transform: translateY(1px);
+}
+
+/* =====================
+    Responsive
+===================== */
+@media (max-width: 820px) {
+    .confirm-table th {
+        width: 140px;
+    }
+
+    .confirm__actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .confirm .btn--primary {
+        width: 240px;
+    }
+}
